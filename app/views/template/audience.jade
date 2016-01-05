@@ -1,0 +1,12 @@
+.jumbotron
+  h2 Are you happy ?
+  form.form-inline
+    .row
+      div(ng-controller='ClickController')
+        .col-md-4.test
+          button.btn.btn-primary.btn-lg.btn-block(type='button', ng-click='clickYes()') Yes
+        .col-md-4
+          button.btn.btn-primary.btn-lg.btn-block(type='button', ng-click='clickNo()') No
+        .col-md-4
+          button.btn.btn-primary.btn-lg.btn-block(type='button', ng-click='clickIdk()') I don&apos;t know
+    
