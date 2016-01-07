@@ -12,6 +12,8 @@
 	
 	module.config(function( $stateProvider, $urlRouterProvider, $locationProvider ) {
 		
+    console.log('test');
+    
 		$urlRouterProvider.when('', '/');
 		
 		$locationProvider.html5Mode({
