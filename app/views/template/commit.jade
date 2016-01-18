@@ -1,0 +1,34 @@
+.jumbotron
+  div(ng-controller='commitController')
+    h2 Who works the most ?
+    .row
+      .col-lg-12
+        .panel.panel-default
+          .panel-heading
+            .alert.alert-danger.alert-dismissible(role="alert",  ng-show="!checkResponse")
+              button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                span(aria-hidden="true")
+              strong Error!&nbsp
+              Better check yourself, you're not looking too good.
+            .alert.alert-success.alert-dismissible(role="alert",  ng-show="sumbitted")
+              button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                span(aria-hidden="true")
+              strong Success!&nbsp
+              Informations successfully retrived, you can check results on commits result page.
+          .panel-body
+            .form
+              .col-lg-12
+                .form-inline
+                  label Repositorie information : &nbsp
+                  input.form-control(ng-model="repoOwner", ng-value="repoOwner",  type="text", placeholder="Owner of repo", required, autofocus="")
+                  &nbsp
+                  input.form-control(ng-model="repoName", ng-value="repoName", type="text", placeholder="Name of repo", required, autofocus="")
+                  &nbsp
+                  button(class="btn btn-md btn-success", ng-click="getCommit()") Retrive commits informations
+
+              
+                
+          
+    
+      
+    
