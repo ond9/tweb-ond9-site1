@@ -18,19 +18,14 @@
 			url: '/'
 		});
 		
-		$stateProvider.state('audience', {
-			templateUrl: '/template/audience.html',
-			url: '/audience'
+		$stateProvider.state('commit', {
+			templateUrl: '/template/commit.html',
+			url: '/commit'
 		});
 		
 		$stateProvider.state('board', {
 			templateUrl: '/template/board.html',
 			url: '/board'
-		});
-		
-		$stateProvider.state('debug', {
-			templateUrl: '/template/debug.html',
-			url: '/debug'
 		});
 		
 	});
@@ -78,6 +73,7 @@
   
     $scope.getCommit = function() {
     
+    commitData.data = [];
       commitData.repoName = $scope.repoName;
       commitData.repoOwner = $scope.repoOwner;
       

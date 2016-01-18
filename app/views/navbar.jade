@@ -9,9 +9,7 @@ nav.navbar.navbar-default(ng-app='myApp',ng-controller='ActiveController')
        a.navbar-brand(href='/')= title
      #navbar.navbar-collapse.collapse
        ul.nav.navbar-nav
-         li(ng-class="{active: isActive('/audience')}")
-           a(href='/audience') Audience
+         li(ng-class="{active: isActive('/commit')}")
+           a(href='/commit') commit
          li(ng-class="{active: isActive('/board')}")
            a(href='/board') Board
-         li(ng-class="{active: isActive('/debug')}")
-           a(href='/debug') Debug
