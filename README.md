@@ -117,7 +117,7 @@ router.get('*', function(req, res){
 
 #### Angular Controllers
 
-I have three controllers for the project, the first is to handle Navbar style when we change pages. 
+I have three controllers for the project, the first 'ActiveController' is to handle Navbar style when we change pages. 
 The second 'DataController' is for the result page, it contain data that chart JS will render inside a graph.
 The third 'commitController' do the real job, that is process user input and send Ajax request to GitHub API to retrive data.
 
@@ -214,6 +214,25 @@ Once we have our token we simply need to send it for each request within the Aut
 
 That's all :)
 
+#### Views and jade
+
+I have nothing particular to say about jade but i include my angular app and the 'ActiveController' controller inside the navbar.jade file
+
+```jade
+nav.navbar.navbar-default(ng-app='myApp',ng-controller='ActiveController')
+```
+
+and 'commitController' inside the commit.jade file wich represend the view to get repository commit info
+
+```jade
+div(ng-controller='commitController')
+```
+
+and 'DataController' inside the board.jade file wich is the graphical result of number of commit by contributors.
+
+```jade
+div(ng-controller='DataController')
+```
 
 
 
