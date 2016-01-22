@@ -7,6 +7,8 @@ The main goal of this project is to learn and applies AngularJS within an web ap
 
 I choose the 2nd subject it handle : Develop and AngularJS web application that retrive result from the GitHub API.
 
+You can test app on Heroku : https://tweb-ond9-site1.herokuapp.com/
+
 ## Specification
 
 I use GitHub API to retrive info about commit for a given GitHub project, process result and display them graphically.
@@ -241,6 +243,12 @@ To build a chart with ChartJS and Angular you can refer to this link : http://jt
 ```jade
 canvas(id="doughnut",class="chart chart-doughnut", chart-data="data", chart-labels="labels", chart-legend="true")
 ```
+
+## Conclusion
+
+This project allowed me to strengthen my knowlege with angularjs and others tools that we learn during the course.
+
+Link to another assesment made during the course : https://tweb-realtime-angularjs-ond9.herokuapp.com/
 
 
 
