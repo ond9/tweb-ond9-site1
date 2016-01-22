@@ -17,7 +17,7 @@ The project must be deployed on Heroku.
 
 ## Implementation
 
-### creation of the project
+### Creation of the project
 
 Of course i have use yeoman express template as we can see in the TWEB course.
 
@@ -33,7 +33,7 @@ npm install -g generator-express
 ```
 And of course all this tools require node JS.
 
-### heroku deployment 
+### Heroku deployment 
 
 inside the config/config.js file we have to specify the Heroku port because of course we can't choose for heroku the default port and we also need to specify the MangoDB url as the following 
 
@@ -56,12 +56,14 @@ note that i don't use Database on this project.
 
 ### Web application description
 
+#### Dependencies
 Inside the Angular Application we need to use dependencies, Chart Js and UIrouter so we have to specify that :
 
 ```javascript
 var module = angular.module('myApp', ['chart.js', 'ui.router']);
 ```
 
+#### routing and UIrouter
 For ui.router we have to config the routing parts as following : 
 
 ```javascript
@@ -112,6 +114,11 @@ router.get('*', function(req, res){
     });
 });
 ```
+
+#### Angular Controllers
+
+
+
 
 
 
