@@ -31,6 +31,7 @@ Of course as pre-requisites we need to have yo and generator-express installed y
 npm install -g yo
 npm install -g generator-express
 ```
+And of course all this tools require node JS.
 
 ### heroku deployment 
 
@@ -51,6 +52,14 @@ var mongoUri = process.env.MONGOLAB_URI ||
  So if the var environnement process.env.x is defined like when we deploy it on heroku it will be 
 automatically set by Heroku otherwise it will be set to our config.
 
-### heroku deployment
+note that i don't use Database on this project.
+
+### Web application description
+
+Inside the Angular Application we need to use dependencies, Chart Js and UIrouter so we have to specify that :
+
+```javascript
+var module = angular.module('myApp', ['chart.js', 'ui.router']);
+```
 
 
