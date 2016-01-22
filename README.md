@@ -16,3 +16,41 @@ I have use scaffolding tools suite Yeoman, Bower, and grunt.
 The project must be deployed on Heroku.
 
 ## Implementation
+
+### creation of the project
+
+Of course i have use yeoman express template as we can see in the TWEB course.
+
+```
+yo express
+```
+
+Of course as pre-requisites we need to have yo and generator-express installed you can retrive them as the following:
+
+```
+npm install -g yo
+npm install -g generator-express
+```
+
+### heroku deployment 
+
+inside the config/config.js file we have to specify the Heroku port because of course we can't choose for heroku the default port and we also need to specify the MangoDB url as the following 
+
+```javascript
+
+var port = process.env.PORT || 7070;
+
+
+var mongoUri = process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/mydb';
+  
+  
+ ```
+ 
+ So if the var environnement process.env.x is defined like when we deploy it on heroku it will be 
+automatically set by Heroku otherwise it will be set to our config.
+
+### heroku deployment
+
+
