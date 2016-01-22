@@ -3,8 +3,6 @@
 	var module = angular.module('myApp', ['chart.js', 'ui.router']);
 	 
 	module.config(function( $stateProvider, $urlRouterProvider, $locationProvider ) {
-		
-    console.log('test');
     
 		$urlRouterProvider.when('', '/');
 		

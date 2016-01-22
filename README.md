@@ -62,4 +62,57 @@ Inside the Angular Application we need to use dependencies, Chart Js and UIroute
 var module = angular.module('myApp', ['chart.js', 'ui.router']);
 ```
 
+For ui.router we have to config the routing parts as following : 
+
+```javascript
+module.config(function( $stateProvider, $urlRouterProvider, $locationProvider ) {
+    
+		$urlRouterProvider.when('', '/');
+		
+		$locationProvider.html5Mode({
+		  enabled: true,
+		  requireBase: false
+		});
+		
+		$stateProvider.state('home', {
+			templateUrl: '/template/home.html',
+			url: '/'
+		});
+		
+		$stateProvider.state('commit', {
+			templateUrl: '/template/commit.html',
+			url: '/commit'
+		});
+		
+		$stateProvider.state('board', {
+			templateUrl: '/template/board.html',
+			url: '/board'
+		});
+		
+	});
+```
+Note that i use HTML5 mode so we can access url as usual http://myApp/page1, http://myApp/page2, http://myApp/page3 and so on.
+
+It raises problems when we refresh current page inside à specific view, because to refresh a specific page we need to pass through the base url, because is that page who laod any others.
+To fixe that we add a route inside the app/controllers/home.js :
+
+```javascript
+
+// to match jade view 
+router.get('/template/:name.html', function(req, res) {
+	console.log(req.params.name);
+	res.render('template/' + req.params.name);
+})
+
+// because of html 5 mode refresh certain page don't load index and fail 
+
+router.get('*', function(req, res){
+    res.render('index', {
+      title: 'TWEB-ond9-Site1',
+    });
+});
+```
+
+
+
 
