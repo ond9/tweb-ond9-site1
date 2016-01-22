@@ -25,7 +25,7 @@ Of course i have use yeoman express template as we can see in the TWEB course.
 yo express
 ```
 
-Of course as pre-requisites we need to have yo and generator-express installed you can retrive them as the following:
+As pre-requisites we need to have yo and generator-express installed you can retrive them as the following:
 
 ```
 npm install -g yo
@@ -209,7 +209,7 @@ To create a token on GitHub follow this link : https://github.com/settings/token
 
 Once we have our token we simply need to send it for each request within the Authorization header of http GET request : 
 ```
-Authorization: token <MYTOKEN>'
+'Authorization: token <MYTOKEN>'
 ```
 
 That's all :)
