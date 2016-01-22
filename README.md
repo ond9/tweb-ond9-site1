@@ -234,6 +234,13 @@ and 'DataController' inside the board.jade file wich is the graphical result of 
 div(ng-controller='DataController')
 ```
 
+#### ChartJS
+
+To build a chart with ChartJS and Angular you can refer to this link : http://jtblin.github.io/angular-chart.js/
+
+```jade
+canvas(id="doughnut",class="chart chart-doughnut", chart-data="data", chart-labels="labels", chart-legend="true")
+```
 
 
 
