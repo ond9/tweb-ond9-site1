@@ -207,7 +207,12 @@ module.controller('ActiveController', function($scope, $location) {
 Note GitHub request token if we wouldn't be limited on the number of request on their API for a given IP. For that i create a token on my GitHub acount.
 To create a token on GitHub follow this link : https://github.com/settings/tokens.
 
-Once we have our token we simply need to send it for each request within the Authorization header of http GET request : Authorization: token <MYTOKEN>'. That's all :)
+Once we have our token we simply need to send it for each request within the Authorization header of http GET request : 
+```
+Authorization: token <MYTOKEN>'
+```
+
+That's all :)
 
 
 
