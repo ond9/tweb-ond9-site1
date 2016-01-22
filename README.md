@@ -117,6 +117,97 @@ router.get('*', function(req, res){
 
 #### Angular Controllers
 
+I have three controllers for the project, the first is to handle Navbar style when we change pages. 
+The second 'DataController' is for the result page, it contain data that chart JS will render inside a graph.
+The third 'commitController' do the real job, that is process user input and send Ajax request to GitHub API to retrive data.
+
+```javascript
+module.controller('ActiveController', function($scope, $location) {	  
+	  $scope.isActive = function(viewLocation) {
+		  return viewLocation === $location.path();
+	  };
+	});
+  
+  module.factory('commitData', function() {
+		  
+		  var nbCommits = {};
+      var repoName;
+      var repoOwner;
+		  return {
+				 data:nbCommits        
+			};
+  });
+	  
+  module.controller('DataController', function($scope, commitData) {
+
+    $scope.data = [];
+    $scope.labels = [];
+
+    for (var key in commitData.data) {
+      $scope.labels.push(key);
+      $scope.data.push(commitData.data[key]);
+    }
+    
+    $scope.repoOwner = commitData.repoOwner;
+    $scope.repoName = commitData.repoName; 
+    
+  });
+    
+  module.controller('commitController', function($scope, $http, $state, commitData) {
+    $scope.checkResponse = true;
+    $scope.sumbitted = false;
+    $scope.repoName = commitData.repoName;
+    $scope.repoOwner = commitData.repoOwner;
+    
+
+    var apiUrlBase = 'https://api.github.com/repos';
+  
+    $scope.getCommit = function() {
+    
+    commitData.data = [];
+      commitData.repoName = $scope.repoName;
+      commitData.repoOwner = $scope.repoOwner;
+      
+      $http({
+            headers: {
+              'Authorization': 'token a09331666be7f11ed3ba5a55e99ca4730d87ccdd'
+            },
+            method: 'GET',
+            url: apiUrlBase +'/'+ $scope.repoOwner +'/'+ $scope.repoName +'/stats/contributors'
+          }
+        ).then(function (res) {
+          var data = res.data;
+          //here the logic
+          data.forEach( function(c) {
+            console.log(c.author.login);
+            if(commitData.data[c.author.login] === undefined) 
+              commitData.data[c.author.login] = c.total;
+
+          });
+          
+          console.log(commitData.data);
+          if(res.status == 200){
+            $scope.sumbitted = true;
+            $scope.checkResponse = true;
+            $state.go('board');
+          }
+
+          
+        }, function (err) {
+          if(err.status == 404)
+            $scope.checkResponse = false;
+            commitData.repoName = $scope.repoName = "";
+            commitData.repoOwner = $scope.repoOwner = "";
+            commitData.data = "";
+      });
+    };
+  });
+```
+
+Note GitHub request token if we wouldn't be limited on the number of request on their API for a given IP. For that i create a token on my GitHub acount.
+To create a token on GitHub follow this link : https://github.com/settings/tokens.
+
+Once we have our token we simply need to send it for each request within the Authorization header of http GET request : Authorization: token <MYTOKEN>'. That's all :)
 
 
 
