@@ -67,7 +67,6 @@
     $scope.repoName = commitData.repoName;
     $scope.repoOwner = commitData.repoOwner;
     
-    /* a09331666be7f11ed3ba5a55e99ca4730d87ccdd  */
 
     var apiUrlBase = 'https://api.github.com/repos';
   
@@ -78,6 +77,9 @@
       commitData.repoOwner = $scope.repoOwner;
       
       $http({
+            headers: {
+              'Authorization': 'token a09331666be7f11ed3ba5a55e99ca4730d87ccdd'
+            },
             method: 'GET',
             url: apiUrlBase +'/'+ $scope.repoOwner +'/'+ $scope.repoName +'/stats/contributors'
           }
